@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;                                                                      // Structure
+struct Book {
+    int id;
+    string name;
+    string author;
+    int pages;
+    string status;
+};
+int main() {
+  int n;
+ cout << "Enter number of books: ";
+  cin >> n;
+  Book books[n];                                                                          // Input books
+    for (int i = 0; i < n; i++) {
+            cout << "\nBook " << i + 1 << endl;
+           cout << "Enter Book ID: ";
+           cin >> books[i].id;
+           cout << "Enter Book Name: ";
+           cin >> books[i].name;
+           cout << "Enter Author Name: ";
+           cin >> books[i].author;
+           cout << "Enter Number of Pages: ";
+         cin >> books[i].pages;
+        cout << "Enter Status (Available/Borrowed): ";
+ cin >> books[i].status;
+    }
+   int searchID;
+    cout << "\nEnter Book ID to update: ";
+    cin >> searchID;
+    bool found = false;                                                                                 // Search and update
+    for (int i = 0; i < n; i++) {
+        if (books[i].id == searchID) {
+            found = true;
+            cout << "\nBook Found!\n";
+            cout << "Current Name: "
+                 << books[i].name << endl;
+            cout << "Current Author: ";
+                 << books[i].author << endl;
+            cout << "Current Pages: "
+                 << books[i].pages << endl;
+            cout << "Current Status: "
+                 << books[i].status << endl   ;                                      // Update information
+            cout << "\nEnter New Book Name: ";
+            cin >> books[i].name;
+            cout << "Enter New Author Name: ";
+            cin >> books[i].author;
+            cout << "Enter New Number of Pages: ";
+            cin >> books[i].pages;
+            cout << "Enter New Status: ";
+            cin >> books[i].status;                                                             // Display updated information
+            cout << "\nUpdated Book Information:\n";
+           cout << "Book ID: "
+                 << books[i].id << endl;
+         cout << "Book Name: "
+                 << books[i].name << endl;
+            cout << "Author: "
+                 << books[i].author << endl;
+            cout << "Pages: "
+                 << books[i].pages << endl;
+            cout << "Status: "
+                 << books[i].status << endl;
+            break;
+        }
+    }                                                                                               // If not found
+    if (!found) {
+        cout << "Book not found!" << endl;
+    }
+  return 0;
+}
